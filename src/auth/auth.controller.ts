@@ -12,4 +12,17 @@ export class AuthController {
   async login(@Request() req) {
     return req.user;
   }
+
+  @Post('logout')
+  logout(@Request() req) {
+    req.session.destroy((err) => {
+      if (err) {
+        console.log('Error destroying session:', err);
+      }
+    });
+
+    req.logout(() => {});
+    
+    return { message: 'The user session has ended' };
+  }
 }

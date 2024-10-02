@@ -10,8 +10,8 @@ export class AuthService {
     const user = await this.usersService.findOne(username);
     
     if (user && user.password === password) {
-      delete user.password;
-      return user;
+      const { password, ...rest } = user;
+      return rest;
     }
 
     return null;
