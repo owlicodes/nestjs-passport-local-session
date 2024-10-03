@@ -26,6 +26,6 @@ export class AuthController {
 
     req.logout(() => {});
 
-    return { message: "The user session has ended" };
+    return { message: "The user has been successfully logged out." };
   }
 }
