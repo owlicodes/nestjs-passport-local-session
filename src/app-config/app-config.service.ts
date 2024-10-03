@@ -20,4 +20,12 @@ export class AppConfigService {
   getSessionSecret(): string {
     return this.configService.get<string>("SESSION_SECRET", { infer: true })!;
   }
+
+  getRedisHost(): string {
+    return this.configService.get<string>("REDIS_HOST", { infer: true })!;
+  }
+
+  getRedisPort(): number {
+    return this.configService.get<number>("REDIS_PORT", { infer: true })!;
+  }
 }

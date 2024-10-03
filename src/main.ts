@@ -30,9 +30,8 @@ async function bootstrap() {
   );
 
   const redisClient = new Redis({
-    host: "localhost", // Use 'redis' if your NestJS app is also dockerized
-    port: 6379,
-    db: 0,
+    host: appConfigService.getRedisHost(), // Use 'redis' or the docker service name if your NestJS app is also dockerized
+    port: appConfigService.getRedisPort(),
   });
 
   const redisStore = new RedisStore({
